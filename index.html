@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赣鄱绿韵 · 数智共生 —— 江西“两山”理论实践可视化报告</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 头部（Hero）区域 -->
+    <section id="hero">
+        <!-- 粒子效果容器 -->
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>赣鄱绿韵 · 数智共生</h1>
+            <h2>江西“两山”理论实践可视化报告</h2>
+            <p class="subtitle">国家生态文明试验区（江西）生态价值转化成果展示</p>
+            <div class="quote">
+                <p>“绿水青山就是金山银山”</p>
+                <p class="author">—— 习近平总书记</p>
+            </div>
+            <div class="ecological-index">
+                <h3>江西生态健康指数</h3>
+                <div class="index-value" id="ecologicalIndex">92.6</div>
+            </div>
+            <p class="intro">江西作为首批国家生态文明试验区，始终践行“两山”理念，走出了一条生态与经济协调发展的新路径。</p>
+        </div>
+    </section>
+
+    <!-- 关键指标卡片区（KPI） -->
+    <section id="kpi">
+        <div class="container">
+            <h2>核心生态指标</h2>
+            <div class="kpi-cards">
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-tree"></i></div>
+                    <div class="kpi-value">63.1% <span class="trend-up"><i class="fas fa-arrow-up"></i> 稳定</span></div>
+                    <div class="kpi-label">森林覆盖率</div>
+                    <div class="kpi-desc">稳居全国第二</div>
+                    <div class="kpi-source">数据来源：江西省林业局</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="kpi-value">6800亿元 <span class="trend-up"><i class="fas fa-arrow-up"></i> 增长</span></div>
+                    <div class="kpi-label">林业产业总产值</div>
+                    <div class="kpi-desc">2024年突破，全国第一方阵</div>
+                    <div class="kpi-source">数据来源：江西省林业局</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="kpi-value">95.5% <span class="trend-up"><i class="fas fa-arrow-up"></i> 中部第一</span></div>
+                    <div class="kpi-label">空气优良天数比率</div>
+                    <div class="kpi-desc">PM2.5平均浓度27微克/立方米</div>
+                    <div class="kpi-source">数据来源：江西省生态环境厅</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-water"></i></div>
+                    <div class="kpi-value">97.7% <span class="trend-up"><i class="fas fa-arrow-up"></i> 持续提升</span></div>
+                    <div class="kpi-label">地表水国考断面水质优良比例</div>
+                    <div class="kpi-desc">长江赣江干流水质保持Ⅱ类</div>
+                    <div class="kpi-source">数据来源：江西省生态环境厅</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-hiking"></i></div>
+                    <div class="kpi-value">7392个 <span class="trend-up"><i class="fas fa-arrow-up"></i> 全国第2</span></div>
+                    <div class="kpi-label">绿色有机地理标志农产品总数</div>
+                    <div class="kpi-desc">2024年数据</div>
+                    <div class="kpi-source">数据来源：江西省农业农村厅</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon"><i class="fas fa-award"></i></div>
+                    <div class="kpi-value">48座 <span class="trend-up"><i class="fas fa-arrow-up"></i> 新增</span></div>
+                    <div class="kpi-label">新建成绿色矿山</div>
+                    <div class="kpi-desc">生态修复成效显著</div>
+                    <div class="kpi-source">数据来源：江西省自然资源厅</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 时空对比维度 -->
+    <section id="comparison">
+        <div class="container">
+            <h2>时空对比维度</h2>
+            
+            <!-- 昔日矿山 vs 今日绿肺 图像对比滑块 -->
+            <div class="comparison-item">
+                <h3>昔日矿山 vs 今日绿肺</h3>
+                <div class="image-slider-container">
+                    <div
+                        class="image-slider"
+                        id="imageSlider"
+                        data-before-src="images/mining-before.png"
+                        data-after-src="images/ecological-after.png"
+                    >
+                        <div class="slider-before">
+                            <img src="images/mining-before.png" alt="昔日矿山修复前实景图" loading="lazy">
+                            <div class="slider-label">昔日矿山</div>
+                        </div>
+                        <div class="slider-after">
+                            <img src="images/ecological-after.png" alt="今日绿肺生态修复后实景图" loading="lazy">
+                            <div class="slider-label">今日绿肺</div>
+                        </div>
+                        <div class="slider-handle">
+                            <i class="fas fa-arrows-h"></i>
+                        </div>
+                    </div>
+                    <p class="resource-note">图片资源位于 <code>images/mining-before.png</code> 与 <code>images/ecological-after.png</code>，后续替换同名文件即可快速更新对比内容。</p>
+                </div>
+                <p class="comparison-desc">江西赣南稀土矿区生态修复前后对比，昔日的废弃矿山如今已变成郁郁葱葱的生态公园。</p>
+            </div>
+            
+            <!-- 习近平生态文明思想与江西实践时间轴 -->
+            <div class="comparison-item">
+                <h3>习近平生态文明思想与江西实践</h3>
+                <div class="ideology-timeline" id="ideologyTimeline">
+                    <div class="timeline-track">
+                        <div class="timeline-node">
+                            <div class="timeline-date">2005</div>
+                            <div class="timeline-content">
+                                <h4>绿水青山就是金山银山</h4>
+                                <p>习近平总书记在浙江安吉首次提出“绿水青山就是金山银山”的重要理念</p>
+                            </div>
+                        </div>
+                        <div class="timeline-node">
+                            <div class="timeline-date">2016</div>
+                            <div class="timeline-content">
+                                <h4>江西被列入首批国家生态文明试验区</h4>
+                                <p>江西成为全国首批国家生态文明试验区，开启生态文明建设新征程</p>
+                            </div>
+                        </div>
+                        <div class="timeline-node">
+                            <div class="timeline-date">2019</div>
+                            <div class="timeline-content">
+                                <h4>抚州“两山银行”试点</h4>
+                                <p>抚州创新建立“两山银行”机制，探索生态资源向资产、资本转化的路径</p>
+                            </div>
+                        </div>
+                        <div class="timeline-node">
+                            <div class="timeline-date">2024</div>
+                            <div class="timeline-content">
+                                <h4>江西生态产品总值（GEP）核算成果发布</h4>
+                                <p>江西发布生态产品总值核算成果，生态价值量化取得重要进展</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="comparison-desc">江西的生态文明实践是习近平生态文明思想在地方的生动体现，从理念提出到具体实践，展现了思想引领下的江西行动。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 可视化图表区 -->
+    <section id="charts">
+        <div class="container">
+            <h2>数据可视化分析</h2>
+            <div class="chart-container">
+                <div class="chart-item">
+                    <h3>森林覆盖率动态趋势（2010-2025）</h3>
+                    <div id="forestChart" class="chart"></div>
+                    <p class="chart-desc">江西森林覆盖率持续提升，生态屏障作用增强。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>生态产品总值（GEP）构成</h3>
+                    <div id="gepChart" class="chart"></div>
+                    <p class="chart-desc">调节服务占比最高，体现生态系统的隐性价值。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>部分地市森林覆盖率对比</h3>
+                    <div id="cityChart" class="chart"></div>
+                    <p class="chart-desc">展示区域差异及抚州、资溪等地的创新实践。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>林业碳汇交易增长趋势</h3>
+                    <div id="carbonChart" class="chart"></div>
+                    <p class="chart-desc">碳汇交易金额快速上升，生态价值市场化路径逐步成熟。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>生态旅游收入增长趋势</h3>
+                    <div id="tourismChart" class="chart"></div>
+                    <p class="chart-desc">生态旅游收入逐年增长，绿水青山成为金山银山的重要途径。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>空气质量指数变化</h3>
+                    <div id="airChart" class="chart"></div>
+                    <p class="chart-desc">空气质量持续改善，蓝天保卫战取得显著成效。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>鄱阳湖湿地生态变化</h3>
+                    <div id="wetlandChart" class="chart"></div>
+                    <p class="chart-desc">湿地保护与恢复成效显著，候鸟数量稳定增长，体现生物多样性保护。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>江西绿色产业产值增长</h3>
+                    <div id="greenIndustryChart" class="chart"></div>
+                    <p class="chart-desc">绿色产业成为经济增长新引擎，印证“两山”转化实效。</p>
+                </div>
+                <div class="chart-item">
+                    <h3>江西生态指标 vs 全国平均</h3>
+                    <div id="radarChart" class="chart"></div>
+                    <p class="chart-desc">江西生态指标与全国平均水平对比，凸显江西绿色生态优势。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 江西实践亮点案例区 -->
+    <section id="cases">
+        <div class="container">
+            <h2>江西实践亮点案例</h2>
+            <div class="case-cards">
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-landmark"></i></div>
+                    <h3>抚州“两山银行”</h3>
+                    <p>创新建立“资源收储-价值评估-市场化交易”机制，已收储林地、水域等生态资源120余万亩，发放“生态贷”12.5亿元，实现生态资源向资产、资本的转化，为全国“两山”转化提供了可复制的抚州模式。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>资溪县GEP核算</h3>
+                    <p>全国首个将生态产品总值(GEP)纳入干部考核的县，建立了涵盖27项指标的GEP核算体系，通过生态补偿机制，实现了生态保护与经济发展的良性互动，2024年GEP达302亿元，是GDP的2.8倍。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-cloud"></i></div>
+                    <h3>江西省“生态云”平台</h3>
+                    <p>整合卫星遥感、物联网、大数据等技术，实时监测全省生态环境状况，覆盖森林、水、大气等11类生态要素，构建了“天空地”一体化生态监测网络，为生态决策提供科学依据，助力双碳目标实现。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>鄱阳湖湿地保护修复</h3>
+                    <p>实施“鄱阳湖湿地保护与恢复工程”，通过退田还湖、生态补水、生物多样性保护等措施，湿地面积恢复至4070平方公里，越冬候鸟数量突破70万只，成为全球重要的生态名片。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-tree"></i></div>
+                    <h3>赣江源头生态补偿机制</h3>
+                    <p>建立跨省域生态补偿机制，与广东省签订东江流域生态补偿协议，累计获得补偿资金10.5亿元，用于源头地区生态保护和民生改善，实现了“保护者受益、受益者补偿”的良性循环。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-tractor"></i></div>
+                    <h3>绿色有机农业发展</h3>
+                    <p>打造“生态鄱阳湖·绿色农产品”品牌，认证绿色有机农产品基地1200万亩，培育绿色食品企业300余家，有机产品数量居全国前列，实现了生态优势向经济优势的转化。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>赣州“稀土矿山生态修复数字化监管平台”</h3>
+                    <p>利用物联网+卫星遥感技术，对稀土矿区复绿效果进行动态监测，修复面积超2.5万亩，植被覆盖率从修复前的15%提升至85%，实现了生态修复全过程数字化管理，为全国矿山生态修复提供了“赣州方案”。</p>
+                </div>
+                <div class="case-card">
+                    <div class="case-icon"><i class="fas fa-piggy-bank"></i></div>
+                    <h3>武宁“生态产品储蓄银行”</h3>
+                    <p>创新生态积分体系，农户通过护林、护水等生态保护行为获得积分，可兑换生活用品或参与分红，已累计发放生态积分120万分，惠及农户8000余户，实现了生态保护与民生改善的双赢。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生态价值转化典型模式 -->
+    <section id="transformation-models">
+        <div class="container">
+            <h2>生态价值转化典型模式</h2>
+            <div class="model-cards">
+                <div class="model-card">
+                    <div class="model-icon"><i class="fas fa-exchange-alt"></i></div>
+                    <h3>生态资源资产化模式</h3>
+                    <p>通过确权登记、价值评估、市场交易等环节，将森林、湿地、水资源等生态资源转化为可交易的资产，实现生态价值的市场化。典型案例：抚州“两山银行”、武宁“生态产品储蓄银行”。</p>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>生态产业融合模式</h3>
+                    <p>将生态优势与产业发展相结合，发展生态旅游、绿色有机农业、林下经济等绿色产业，实现生态价值向经济价值的转化。典型案例：婺源生态旅游、赣南脐橙产业、德兴铜矿生态修复+产业发展。</p>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>生态补偿模式</h3>
+                    <p>通过财政转移支付、市场化补偿等方式，对生态保护者进行补偿，实现“保护者受益、受益者补偿”的良性循环。典型案例：赣江源头生态补偿机制、鄱阳湖湿地生态补偿。</p>
+                </div>
+                <div class="model-card">
+                    <div class="model-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>数字化赋能模式</h3>
+                    <p>利用数字技术提升生态监测、价值评估、交易管理等环节的效率，实现生态价值的精准量化和高效转化。典型案例：江西省“生态云”平台、赣州稀土矿山生态修复数字化监管平台。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生态数字孪生与智慧监测模块 -->
+    <section id="digital-twin">
+        <div class="container">
+            <h2>数智赋能 · 生态“一张图”</h2>
+            <div class="digital-twin-content">
+                <div class="map-container">
+                    <div
+                        id="ecologicalMap"
+                        class="ecological-map"
+                        data-geojson="data/jiangxi.json"
+                        aria-label="江西生态一张图"
+                    ></div>
+
+                    <div class="data-stream" id="dataStream"></div>
+                </div>
+                <div class="map-info" id="mapInfo">
+                    <h3>点击地图区域查看详情</h3>
+                    <p>请点击地图上的区域或标记点，查看该区域的生态价值、保护成效和数字化监测手段。后续新增地区时，优先在 <code>data/jiangxi.json</code> 与 <code>script.js</code> 的地图配置中维护。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 碳汇价值模拟计算器 -->
+    <section id="carbon-calculator">
+        <div class="container">
+            <h2>碳汇价值模拟计算器</h2>
+            <div class="calculator-content">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="forestArea">林地面积（亩）</label>
+                        <input type="number" id="forestArea" placeholder="请输入林地面积">
+                    </div>
+                    <div class="form-group">
+                        <label for="protectionYears">保护森林年限（年）</label>
+                        <input type="number" id="protectionYears" placeholder="请输入保护年限">
+                    </div>
+                    <button id="calculateBtn" class="calculate-btn">计算碳汇价值</button>
+                </div>
+                <div class="calculator-result" id="calculatorResult">
+                    <h3>计算结果</h3>
+                    <p>请输入数据并点击计算按钮</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 深度案例与故事线 -->
+    <section id="deep-cases">
+        <div class="container">
+            <h2>深度案例与故事线</h2>
+            
+            <!-- 生态账本模拟计算器 -->
+            <div class="deep-case-item">
+                <h3>生态账本模拟计算器</h3>
+                <div class="ecological-ledger">
+                    <div class="ledger-form">
+                        <div class="form-group">
+                            <label for="landArea">您拥有的林地面积（亩）</label>
+                            <input type="range" id="landArea" min="1" max="100" value="10">
+                            <span id="landAreaValue">10</span> 亩
+                        </div>
+                        <button id="depositBtn" class="ledger-btn">存入“两山银行”</button>
+                    </div>
+                    <div class="ledger-result" id="ledgerResult">
+                        <h4>预期收益</h4>
+                        <p>请调整林地面积并点击存入按钮</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 一湖清水守护故事 -->
+            <div class="deep-case-item">
+                <h3>“一湖清水”守护故事</h3>
+                <div class="lake-story">
+                    <div class="story-content">
+                        <p>鄱阳湖是中国第一大淡水湖，也是国际重要湿地。近年来，江西省加大了对鄱阳湖的保护力度，实施了一系列生态修复和保护措施，取得了显著成效。</p>
+                        <p>禁渔政策实施以来，鄱阳湖的生态环境得到了明显改善，候鸟数量逐年增加。2024年，越冬候鸟数量突破70万只，其中白鹤数量从几十只增加到几千只，成为全球白鹤的重要越冬栖息地。</p>
+                        <p>同时，退捕渔民的转产就业工作也取得了积极进展，通过技能培训、产业扶持等措施，大部分渔民成功实现了转产转业，开启了新的生活。</p>
+                    </div>
+                    <div class="story-charts">
+                        <div class="chart-item small">
+                            <h4>鄱阳湖候鸟数量变化</h4>
+                            <div id="birdChart" class="chart"></div>
+                        </div>
+                        <div class="chart-item small">
+                            <h4>退捕渔民转产就业比例</h4>
+                            <div id="fishermanChart" class="chart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 鄱阳湖国家湿地公园 -->
+            <div class="deep-case-item">
+                <h3>鄱阳湖国家湿地公园</h3>
+                <div class="wetland-park">
+                    <div class="park-overview">
+                        <p>鄱阳湖国家湿地公园是江西生态保护的重要成果，也是展示"两山"理论实践的重要窗口。公园内拥有丰富的湿地资源和生物多样性，是候鸟的重要栖息地和生态旅游的热门目的地。</p>
+                    </div>
+                    <div class="park-attractions">
+                        <h4>核心景点</h4>
+                        <div class="attraction-grid">
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖国家湿地公园龟脑山景区，神龟化身的山体，旁边有饶娥女神雕像，湖光山色，生态环境优美&image_size=landscape_16_9" alt="龟脑山">
+                                </div>
+                                <h5>龟脑山</h5>
+                                <p>神龟化身，世代保护当地渔民，旁边有饶娥女神雕像，纪念古代十二大烈女中的孝女饶娥，有"鄱湖女神"之称。</p>
+                            </div>
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖中央的瓢里山岛，岛上栖息着大量白鹭和池鹭，形成一山灰白的鸟岛奇观，湖水清澈，蓝天白云&image_size=landscape_16_9" alt="瓢里山">
+                                </div>
+                                <h5>瓢里山</h5>
+                                <p>鄱阳湖中央的小岛，形似倒扣的水瓢，是夏候鸟栖息地，北面栖息白鹭，南面栖息池鹭、苍鹭，形成一山灰白的鸟岛奇观。</p>
+                            </div>
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖龙吼山，延绵五六公里的山脉，整体像一条张嘴大吼的龙，山上有洪迈墓遗址，湖光山色&image_size=landscape_16_9" alt="龙吼山">
+                                </div>
+                                <h5>龙吼山</h5>
+                                <p>延绵五六公里的山脉，整体像一条张嘴大吼的龙，朱元璋与陈友谅大战鄱阳湖时曾驻扎于此，山上有洪迈墓遗址。</p>
+                            </div>
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖国家湿地公园水生植物园，种植着各种水生植物，包括荷花、玉莲、睡莲等，湿地环境优美&image_size=landscape_16_9" alt="水生植物园">
+                                </div>
+                                <h5>水生植物园</h5>
+                                <p>总投资约2000万元，占地70000平方米，种植60多种水生植物，集科学研究、物种保育、科普教育及旅游休闲功能为一体。</p>
+                            </div>
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖湿地科学馆，现代化建筑，展示湿地生态系统和湿地文化遗产，内部有互动展示和科普教育内容&image_size=landscape_16_9" alt="湿地科学馆">
+                                </div>
+                                <h5>湿地科学馆</h5>
+                                <p>以湿地为主题，通过实物展示、场景再造和声光电技术，系统展示湿地生态系统和湿地文化遗产，达到科普宣教作用。</p>
+                            </div>
+                            <div class="attraction-item">
+                                <div class="attraction-image">
+                                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖国家湿地公园天鹅湖，湖中有黑天鹅、大白天鹅、灰天鹅等，湖光山色，环境优美&image_size=landscape_16_9" alt="天鹅湖">
+                                </div>
+                                <h5>天鹅湖</h5>
+                                <p>人工驯养候鸟，包括黑天鹅、大白天鹅、灰天鹅等，丰富鄱阳湖珍稀候鸟种群，完善生态资源结构，为科普教育提供真实案例。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 江西环境变化视频展示 -->
+            <div class="deep-case-item">
+                <h3>江西环境变化视频展示</h3>
+                <div class="video-showcase">
+                    <div class="video-overview">
+                        <p>通过视频切片，直观展示江西近年来在生态环境治理方面取得的显著成效，从昔日的矿山到今日的绿肺，从污染治理到生态修复，见证江西的绿色转型之路。</p>
+                    </div>
+                    <div class="video-grid">
+                        <!-- 东江源头矿山复绿视频 -->
+                        <div class="video-item" data-video-id="douyin1" data-video-type="douyin" data-video-url="https://v.douyin.com/oUlkxvTVFnw/">
+                            <div class="video-thumbnail">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=江西赣南东江源头矿山复绿生态美，昔日废弃矿山变成郁郁葱葱的绿色山林，生态修复成果显著，蓝天白云绿水青山&image_size=landscape_16_9" alt="东江源头矿山复绿">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-badge">
+                                    <i class="fab fa-tiktok"></i> 抖音
+                                </div>
+                            </div>
+                            <h5>东江源头：矿山复绿生态美</h5>
+                            <p>推荐单位：江西省赣州市融媒体中心 | 承办单位：中华环保联合会环境与法制专业委员会</p>
+                            <div class="video-tags">
+                                <span class="tag">#绿水青山就是金山银山</span>
+                                <span class="tag">#矿山复绿</span>
+                                <span class="tag">#美丽中国</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 六五环境日主题宣传片 -->
+                        <div class="video-item" data-video-id="douyin2" data-video-type="douyin" data-video-url="https://v.douyin.com/aoN_SqMY_10/">
+                            <div class="video-thumbnail">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=2025年六五环境日江西省主场活动主题宣传片《美丽江西·生态卷轴》，展示江西生态文明建设成果，绿水青山生态画卷&image_size=landscape_16_9" alt="美丽江西生态卷轴">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="video-badge">
+                                    <i class="fab fa-tiktok"></i> 抖音
+                                </div>
+                            </div>
+                            <h5>《美丽江西·生态卷轴》</h5>
+                            <p>2025年六五环境日江西省主场活动主题宣传片 | @生态环境部 @中国环境</p>
+                            <div class="video-tags">
+                                <span class="tag">#六五环境日</span>
+                                <span class="tag">#美丽中国我先行</span>
+                            </div>
+                        </div>
+                        
+                        <div class="video-item" data-video-id="1">
+                            <div class="video-thumbnail">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=江西环境变化前后对比，昔日矿山与今日绿肺的对比，左侧是废弃矿山，右侧是绿色森林&image_size=landscape_16_9" alt="矿山修复前后对比">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <h5>矿山修复前后对比</h5>
+                            <p>从废弃矿山到绿色森林的华丽转身</p>
+                        </div>
+                        <div class="video-item" data-video-id="2">
+                            <div class="video-thumbnail">
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=鄱阳湖生态环境改善，湖水清澈，候鸟成群，湿地景观优美&image_size=landscape_16_9" alt="鄱阳湖生态改善">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <h5>鄱阳湖生态改善</h5>
+                            <p>禁渔政策实施后的生态恢复成效</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 生态文明建设时间轴 -->
+    <section id="timeline">
+        <div class="container">
+            <h2>生态文明建设时间轴</h2>
+            <div class="timeline-container" id="timelineContainer">
+                <!-- 时间轴内容将通过JavaScript生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 数字化赋能展望区 -->
+    <section id="future">
+        <div class="container">
+            <h2>数字化赋能展望</h2>
+            <div class="future-content">
+                <div class="future-text">
+                    <p>数字化技术正在为生态价值核算与转化提供前所未有的强大支撑。通过高分辨率卫星遥感技术，我们可以实时监测森林覆盖、湿地面积、水质变化等生态要素；利用AI算法，我们能够更精准地评估生态系统服务价值，量化碳汇能力；借助大数据分析，我们可以优化生态资源配置，实现生态产品的市场化交易。</p>
+                    <p>未来技术方向：</p>
+                    <ul>
+                        <li><strong>遥感AI智能解译：</strong>自动识别林地变化、非法侵占，提高生态监测效率。通过深度学习算法分析卫星影像，实现对森林覆盖、土地利用变化的实时监测和预警。</li>
+                        <li><strong>区块链+生态产品：</strong>实现碳汇交易溯源、生态资产确权，保障交易安全透明。利用智能合约技术，构建生态产品交易平台，实现生态价值的市场化流通。</li>
+                        <li><strong>数字孪生流域：</strong>对鄱阳湖进行三维模拟，辅助防洪与生态调度。通过实时数据采集和仿真模拟，实现对流域生态系统的精准管理和预测。</li>
+                        <li><strong>物联网+生态监测：</strong>部署智能传感器网络，实时监测空气质量、水质、土壤状况等生态指标，构建“天空地”一体化监测体系。</li>
+                        <li><strong>大数据+生态决策：</strong>整合多源数据，建立生态价值评估模型，为生态保护和发展决策提供科学依据。</li>
+                    </ul>
+                    <p>作为计算机专业的学子，我们拥有独特的技术优势。我们可以开发智能生态监测系统，构建基于机器学习的生态价值评估模型，设计交互式数据可视化平台，为“两山”转化提供科学决策支持。我们开发的算法可让生态价值实时可见，通过技术创新，我们可以让生态价值“可测量、可交易、可增值”。</p>
+                    <p>计科学子的使命：我们将运用所学的编程技能、算法知识和数据处理能力，开发出更加智能、高效的生态监测和价值评估系统。例如，我们可以利用深度学习算法识别卫星影像中的植被覆盖变化，预测生态系统服务价值；开发区块链技术实现生态产品的溯源和交易；构建数字孪生系统模拟生态系统的动态变化。通过这些技术创新，我们将为江西乃至全国的生态文明建设贡献自己的青春力量，让“绿水青山就是金山银山”的理念在数字时代焕发新的活力。</p>
+                </div>
+                <div class="future-dashboard">
+                    <h3>生态文明指数</h3>
+                    <div class="dashboard-value">92.5</div>
+                    <div class="dashboard-desc">江西省生态文明建设综合评价</div>
+                    <div class="dashboard-trend">
+                        <span class="trend-up"><i class="fas fa-arrow-up"></i> 5.2%</span>
+                        <span>同比增长</span>
+                    </div>
+                    <div class="dashboard-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">数字化覆盖率</span>
+                            <span class="metric-value">85%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">AI应用率</span>
+                            <span class="metric-value">72%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">数据共享度</span>
+                            <span class="metric-value">68%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">生态监测点</span>
+                            <span class="metric-value">1200+</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">碳汇交易量</span>
+                            <span class="metric-value">15600万元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 绿水青山知识小测验 -->
+    <section id="quiz">
+        <div class="container">
+            <h2>绿水青山知识小测验</h2>
+            <div class="quiz-box" id="quizApp">
+                <div class="quiz-header">
+                    <h3>🌿 绿水青山知识小测验</h3>
+                    <p>学习“两山”理念 · 守护美丽江西</p>
+                </div>
+                <div class="score-area">
+                    <span>📚 学习进度</span>
+                    <span class="score" id="scoreDisplay">0 / 4</span>
+                    <button class="reset-btn" id="resetQuiz">⟳ 重置</button>
+                </div>
+                <div class="quiz-content" id="quizQuestions"></div>
+                <div class="quiz-footer">🌱 每次选择都是一次学习 —— 绿水青山就是金山银山</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚（Footer） -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>数据基于江西省统计局、林业局、生态环境厅公开资料整理</p>
+                    <p>参考文献与数据来源：</p>
+                    <p><a href="https://www.jxslyj.cn/" target="_blank">江西省林业局官网</a></p>
+                    <p><a href="https://www.jxsthj.gov.cn/" target="_blank">江西省生态环境厅官网</a></p>
+                    <p>仅供课程展示使用</p>
+                    <p>&copy; 2026 江西“两山”理论实践可视化报告</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <!-- 小测验JavaScript代码 -->
+    <script>
+        // ----- 绿水青山知识小测验 -----
+        // 题库（简洁明了）
+        const questions = [
+            {
+                text: "\"绿水青山就是金山银山\"这一理念的核心内涵是什么？",
+                options: ["环境保护与经济发展不可调和", "生态环境优势转化为经济优势，保护生态就是发展生产力", "优先发展工业，再治理环境", "先污染后治理，再修复生态"],
+                correct: 1,
+                explanation: "良好生态本身蕴含着经济价值，保护生态就是保护生产力。"
+            },
+            {
+                text: "江西省森林覆盖率长期稳定在多少左右？",
+                options: ["50%", "63.1%", "70%", "55.8%"],
+                correct: 1,
+                explanation: "江西森林覆盖率约为63.1%，位居全国前列。"
+            },
+            {
+                text: "以下哪项是江西抚州\"两山银行\"的主要功能？",
+                options: ["传统储蓄与贷款业务", "生态资源收储、整合、运营，实现价值转化", "仅进行碳汇交易", "森林防火专项基金"],
+                correct: 1,
+                explanation: "抚州\"两山银行\"创新生态产品价值实现机制，将碎片化资源整合运营。"
+            },
+            {
+                text: "以下哪项最能体现\"绿水青山思想\"的日常实践？",
+                options: ["随意丢弃塑料垃圾", "参与植树，绿色出行", "过度使用一次性餐具", "在自然保护区开垦"],
+                correct: 1,
+                explanation: "植树增加碳汇，绿色出行减少排放，都是践行生态理念的实际行动。"
+            }
+        ];
+
+        // 用户答案数组（存储选中的选项索引，-1表示未答）
+        let userAnswers = new Array(questions.length).fill(-1);
+
+        // 获取容器元素
+        const container = document.getElementById('quizQuestions');
+        const scoreSpan = document.getElementById('scoreDisplay');
+
+        // 计算答对数量
+        function getCorrectCount() {
+            let correct = 0;
+            for (let i = 0; i < questions.length; i++) {
+                if (userAnswers[i] === questions[i].correct) correct++;
+            }
+            return correct;
+        }
+
+        // 更新得分显示
+        function updateScore() {
+            scoreSpan.innerText = `${getCorrectCount()} / ${questions.length}`;
+        }
+
+        // 渲染所有题目
+        function render() {
+            let html = '';
+            for (let i = 0; i < questions.length; i++) {
+                const q = questions[i];
+                const selectedIdx = userAnswers[i];
+                const isCorrect = (selectedIdx === q.correct);
+                
+                // 选项列表
+                let optionsHtml = '';
+                const letters = ['A', 'B', 'C', 'D'];
+                for (let j = 0; j < q.options.length; j++) {
+                    const isSelected = (selectedIdx === j);
+                    const selectedClass = isSelected ? 'selected' : '';
+                    optionsHtml += `
+                        <div class="option ${selectedClass}" data-qidx="${i}" data-oidx="${j}">
+                            <strong>${letters[j]}.</strong> ${q.options[j]}
+                        </div>
+                    `;
+                }
+                
+                // 反馈信息
+                let feedbackHtml = '';
+                if (selectedIdx === -1) {
+                    feedbackHtml = `<div class="feedback wait">🌱 尚未作答，点击选项学习知识。</div>`;
+                } else if (isCorrect) {
+                    feedbackHtml = `<div class="feedback correct">✅ 回答正确！ ${q.explanation}</div>`;
+                } else {
+                    const correctAns = letters[q.correct] + '. ' + q.options[q.correct];
+                    feedbackHtml = `<div class="feedback wrong">❌ 回答错误。正确答案是 ${correctAns}<br>💡 ${q.explanation}</div>`;
+                }
+                
+                html += `
+                    <div class="question-card">
+                        <div class="question-text">${i+1}. ${q.text}</div>
+                        <div class="options-list">${optionsHtml}</div>
+                        <div>${feedbackHtml}</div>
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+            updateScore();
+        }
+
+        // 处理选项点击（委托）
+        function handleOptionClick(e) {
+            let target = e.target.closest('.option');
+            if (!target) return;
+            const qidx = parseInt(target.getAttribute('data-qidx'));
+            const oidx = parseInt(target.getAttribute('data-oidx'));
+            if (isNaN(qidx) || isNaN(oidx)) return;
+            
+            // 如果已经选择了相同选项，不重复处理（也可以允许重新点击，但无变化）
+            if (userAnswers[qidx] === oidx) return;
+            
+            userAnswers[qidx] = oidx;
+            render();  // 重新渲染界面
+        }
+
+        // 重置所有答案
+        function resetQuiz() {
+            userAnswers.fill(-1);
+            render();
+        }
+
+        // 绑定事件（使用事件委托）
+        if (container) {
+            container.addEventListener('click', handleOptionClick);
+        }
+        const resetBtn = document.getElementById('resetQuiz');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetQuiz);
+        }
+        
+        // 初始渲染
+        if (container) {
+            render();
+        }
+    </script>
+</body>
+</html>
